@@ -46,6 +46,7 @@ export const authoptions =  NextAuth({
              const newUser = await User.create({
               email: user.email, 
               username: user.email.split("@")[0], 
+              profilePic:user.image,
             })   
           } 
           return true
@@ -55,6 +56,7 @@ export const authoptions =  NextAuth({
       async session({ session, user, token }) {
         const dbUser = await User.findOne({email: session.user.email})
         session.user.name = dbUser.username
+        session.user.image = dbUser.username
         return session
       },
     } 
