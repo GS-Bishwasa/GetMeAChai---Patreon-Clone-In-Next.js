@@ -16,17 +16,126 @@ const username = ({ params }) => {
         <div className="text-slate-400">
           Creating Animated art for VTT's
         </div>
-        <div className="text-slate-400">
+        <div className="text-slate-400 mb-5">
           15,070 members93 posts$16,190/release
         </div>
 
-        <div className="payment flex gap-3">
-          <div className="supporters">
-            dvssdvvsdv
+        <div className="payment flex gap-3 w-[80%]">
+          <div className="supporters w-1/2 bg-slate-900 rounded-xl p-10">
+            {/* Show List Of All supporters As A Leaderboard */}
+            <h2 className='text-center font-bold text-2xl'>Supporters</h2>
+            <ul className='overflow-y-scroll max-h-80  [&::-webkit-scrollbar]:w-2
+  [&::-webkit-scrollbar-track]:rounded-full
+  [&::-webkit-scrollbar-track]:bg-gray-100
+  [&::-webkit-scrollbar-thumb]:rounded-full
+  [&::-webkit-scrollbar-thumb]:bg-gray-300
+  dark:[&::-webkit-scrollbar-track]:bg-neutral-700
+  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500'>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              <li className='my-4 text-sm flex items-center'>
+                <img width={30} src="avatar.gif" alt="" />
+                <span>
+                Shubham Donated <span className='font-bold'>$30</span> with a Message "Love You Bro. Lots Of ❤️"
+                </span>
+              </li>
+              
+            </ul>
           </div>
 
-          <div className="makepayment">
-            sdvsdvsddvsd
+          <div className="makepayment w-1/2 bg-slate-900 rounded-xl p-10">
+          <h2 className='text-center font-bold text-2xl'>Make A Payment</h2>
+          <div className="flex gap-2 my-3 flex-col">
+            <input type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Name' />
+            <input type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Message' />
+            <input type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Amount' />
+            <button type="button" className="transition-all text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Pay</button>
+          </div>
+          {/* Or Choose From These Amounts */}
+          <div className="flex gap-2 my-3">
+          <button className='p-3 rounded-lg bg-slate-800 hover:bg-slate-500 transition-all'>Pay $10</button>
+          <button className='p-3 rounded-lg bg-slate-800 hover:bg-slate-500 transition-all'>Pay $30</button>
+          <button className='p-3 rounded-lg bg-slate-800 hover:bg-slate-500 transition-all'>Pay $50</button>
+          <button className='p-3 rounded-lg bg-slate-800 hover:bg-slate-500 transition-all'>Pay $70</button>
+          <button className='p-3 rounded-lg bg-slate-800 hover:bg-slate-500 transition-all'>Pay $90</button>
+          <button className='p-3 rounded-lg bg-slate-800 hover:bg-slate-500 transition-all'>Pay $100</button>
+          </div>
           </div>
         </div>
       </div>
