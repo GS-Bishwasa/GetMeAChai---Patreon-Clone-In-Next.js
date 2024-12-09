@@ -13,7 +13,7 @@ import { notFound } from "next/navigation"
 const PaymentPage = ({ username }) => {
     // const { data: session } = useSession()
 
-    const [paymentform, setPaymentform] = useState({name: "", message: "", amount: ""})
+    const [paymentform, setPaymentform] = useState({ name: "", message: "", amount: "" })
     const [currentUser, setcurrentUser] = useState({})
     const [payments, setPayments] = useState([])
     const searchParams = useSearchParams()
@@ -24,23 +24,23 @@ const PaymentPage = ({ username }) => {
     }, [])
 
     useEffect(() => {
-        if(searchParams.get("paymentdone") == "true"){
-        toast('Thanks for your donation!', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
+        if (searchParams.get("paymentdone") == "true") {
+            toast('Thanks for your donation!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
             });
         }
         router.push(`/${username}`)
-     
+
     }, [])
-    
+
 
     const handlechange = (e) => {
         setPaymentform({ ...paymentform, [e.target.name]: e.target.value })
@@ -50,7 +50,7 @@ const PaymentPage = ({ username }) => {
         let u = await fetchuser(username)
         setcurrentUser(u)
         let dbpayments = await fetchpayments(username)
-        setPayments(dbpayments) 
+        setPayments(dbpayments)
     }
 
 
@@ -59,7 +59,7 @@ const PaymentPage = ({ username }) => {
         let a = await initiate(amount, username, paymentform)
         let orderId = a.id
         var options = {
-            "key": currentUser.razorpayid, // Enter the Key ID generated from the Dashboard
+            "key": process.env.NEXT_PUBLIC_KEY_ID, // Enter the Key ID generated from the Dashboard
             "amount": amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
             "currency": "INR",
             "name": "Get Me A Chai", //your business name
@@ -87,7 +87,7 @@ const PaymentPage = ({ username }) => {
 
     return (
         <>
-         <ToastContainer
+            <ToastContainer
                 position="top-right"
                 autoClose={5000}
                 hideProgressBar={false}
@@ -133,90 +133,17 @@ const PaymentPage = ({ username }) => {
                                                 [&::-webkit-scrollbar-thumb]:bg-gray-300
                                                   dark:[&::-webkit-scrollbar-track]:bg-neutral-700
                                                   dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500'>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
-                            <li className='my-4 text-sm flex items-center'>
-                                <img width={30} src="avatar.gif" alt="" />
-                                <span>
-                                    Shubham Donated <span className='font-bold'>₹30</span> with a Message "Love You Bro. Lots Of ❤️"
-                                </span>
-                            </li>
+
+                            {payments.map((p, i) => {
+                                return <li key={i} className='my-4 text-sm flex items-center'>
+                                    <img width={30} src="avatar.gif" alt="" />
+                                    <span>
+                                        {p.name} Donated <span className='font-bold'>₹{p.amount}</span> with a Message "{p.message}"
+                                    </span>
+                                </li>
+                            })
+                            }
+
 
                         </ul>
                     </div>
@@ -227,13 +154,13 @@ const PaymentPage = ({ username }) => {
                             <input onChange={handlechange} value={paymentform.name} name='name' type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Name' />
                             <input onChange={handlechange} value={paymentform.message} name='message' type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Message' />
                             <input onChange={handlechange} value={paymentform.amount} name='amount' type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Amount' />
-                            <button id="rzp-button1" type="button" className="transition-all text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">Pay</button>
+                            <button onClick={()=>{pay(Number.parseInt(paymentform.amount)*100)}} id="rzp-button1" type="button" className="transition-all text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">Pay</button>
                         </div>
                         {/* Or Choose From These Amounts */}
                         <div className="flex justify-between gap-2 my-3">
-                            <button className='p-3 rounded-lg bg-slate-800 hover:bg-slate-500 transition-all' onClick={()=>{pay(1000)}}>Pay ₹10</button>
-                            <button className='p-3 rounded-lg bg-slate-800 hover:bg-slate-500 transition-all' onClick={()=>{pay(5000)}}>Pay ₹50</button>
-                            <button className='p-3 rounded-lg bg-slate-800 hover:bg-slate-500 transition-all' onClick={()=>{pay(10000)}}>Pay ₹100</button>
+                            <button className='p-3 rounded-lg bg-slate-800 hover:bg-slate-500 transition-all' onClick={() => { pay(1000) }}>Pay ₹10</button>
+                            <button className='p-3 rounded-lg bg-slate-800 hover:bg-slate-500 transition-all' onClick={() => { pay(5000) }}>Pay ₹50</button>
+                            <button className='p-3 rounded-lg bg-slate-800 hover:bg-slate-500 transition-all' onClick={() => { pay(10000) }}>Pay ₹100</button>
                         </div>
                     </div>
                 </div>

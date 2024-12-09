@@ -10,15 +10,17 @@
   },
   "dependencies": {
     "mongoose": "^8.8.4",
-    "next": "^15.0.3",
+    "next": "^15.0.4",
     "next-auth": "^4.24.10",
     "razorpay": "^2.9.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-toastify": "^10.0.6",
+    "styled-jsx": "^5.1.6",
     "useractions": "^0.7.0"
   },
   "devDependencies": {
+    "@types/whatwg-url": "^13.0.0",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8",
