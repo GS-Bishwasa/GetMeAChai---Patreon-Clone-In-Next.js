@@ -42,6 +42,21 @@ export const fetchpayments = async(username)=> {
   await connectDb()
   // find all payments sorted by decresing order of amount and flatten object ids
   let p = await Payment.find({to_user: username}).sort({amount:-1}).lean()
-  
+
   return p
+}
+
+
+export const updateProfile = async(data, oldusername)=>{
+  await connectDb()
+  let ndata = Object.fromEntries(data)
+  // if the username is being updated,check if username avalaibe
+  if(oldusername !== ndata.username){
+  let u = await User.findOne({username: ndata.username})
+    if(u){
+      return {error: "username already taken"}
+    }
+  }
+
+  await User.updateOne({email: ndata.email},ndata)
 }

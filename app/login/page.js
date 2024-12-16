@@ -7,9 +7,12 @@ import { useEffect } from 'react'
 const page = () => {
   const { data: session } = useSession()
   const router = useRouter()
-  if(session) {
-   router.push("/dashboard")
-  }
+  useEffect(() => {
+    // console.log(session)
+    if(session) {
+      router.push("/dashboard")
+     }
+}, [])
   // useEffect(() => {
   //   if (!session) {
   //     router.push("/dashboard"); // Redirect after render

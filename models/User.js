@@ -13,10 +13,10 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    profilePic: {
+    profilepic: {
         type: String,
     },
-    coverPic: {
+    coverpic: {
         type: String,
     },
     createdAt: {
@@ -27,6 +27,8 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    razorpayid: { type: String, },
+    razorpaysecret: { type: String },
 
 
 })
