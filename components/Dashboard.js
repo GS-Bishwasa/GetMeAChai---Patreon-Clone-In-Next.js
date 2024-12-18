@@ -33,6 +33,7 @@ const Dashboard = () => {
     }
 
     const handleSubmit = async (e) => {
+        console.log(e)
 update()
         let a = await updateProfile(e, session.user.name)
         toast('Profile Updated', {
@@ -46,6 +47,7 @@ update()
             theme: "light",
             transition: Bounce,
             });
+            router.push('/dashboard')
     }
 
 

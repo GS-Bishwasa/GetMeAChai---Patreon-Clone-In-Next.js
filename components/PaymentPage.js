@@ -23,6 +23,8 @@ const PaymentPage = ({ username }) => {
         getData()
     }, [])
 
+    
+
     useEffect(() => {
         if (searchParams.get("paymentdone") == "true") {
             toast('Thanks for your donation!', {
@@ -59,7 +61,7 @@ const PaymentPage = ({ username }) => {
         let a = await initiate(amount, username, paymentform)
         let orderId = a.id
         var options = {
-            "key": process.env.NEXT_PUBLIC_KEY_ID, // Enter the Key ID generated from the Dashboard
+            "key":currentUser.razorpayid, // Enter the Key ID generated from the Dashboard
             "amount": amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
             "currency": "INR",
             "name": "Get Me A Chai", //your business name
@@ -106,9 +108,9 @@ const PaymentPage = ({ username }) => {
 
 
             <div className="cover w-full relative ">
-                <img className='w-full' src="https://c10.patreonusercontent.com/4/patreon-media/p/campaign/4842667/452146dcfeb04f38853368f554aadde1/eyJ3Ijo5NjAsIndlIjoxfQ%3D%3D/17.gif?token-time=1735948800&token-hash=wXm8-1Z2WP1Yx3YWi7rplx1cJZvHHK10AaSuuEGlOgg%3D" alt="" />
-                <div className="profile-pic absolute -bottom-16 right-[46%]">
-                    <img className='w-[120px] h-[120px] rounded-xl ' src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/d575d443-7b5f-4dbf-bb23-af1c5858ab0b/59cead85-9986-4194-81dd-a9c50581a33e.png" alt="" />
+                <img className='w-full' src={currentUser.coverpic} alt="" />
+                <div className=" rounded-full overflow-hidden profile-pic absolute -bottom-16 right-[46%] size-32 border-2 border-white">
+                    <img height={128} width={128} className='rounded-full object-cover size-32' src={currentUser.profilepic} alt="" />
                 </div>
             </div>
             <div className='inf0 flex justify-center items-center mt-20 mb-10 gap-2 flex-col'>
@@ -134,6 +136,7 @@ const PaymentPage = ({ username }) => {
                                                   dark:[&::-webkit-scrollbar-track]:bg-neutral-700
                                                   dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500'>
 
+                            {payments.length == 0 && <li>No Payments Yet</li>}
                             {payments.map((p, i) => {
                                 return <li key={i} className='my-4 text-sm flex items-center'>
                                     <img width={30} src="avatar.gif" alt="" />
@@ -153,8 +156,8 @@ const PaymentPage = ({ username }) => {
                         <div className="flex gap-2 my-3 flex-col">
                             <input onChange={handlechange} value={paymentform.name} name='name' type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Name' />
                             <input onChange={handlechange} value={paymentform.message} name='message' type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Message' />
-                            <input onChange={handlechange} value={paymentform.amount} name='amount' type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Amount' />
-                            <button onClick={()=>{pay(Number.parseInt(paymentform.amount)*100)}} id="rzp-button1" type="button" className="transition-all text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">Pay</button>
+                            <input onChange={handlechange} value={paymentform.amount} name='amount' type="number" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Amount' />
+                            <button onClick={()=>{pay(Number.parseInt(paymentform.amount)*100)}} id="rzp-button1" type="button" className="transition-all text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 disabled:bg-slate-600" disabled={paymentform.name?.length<3 || paymentform.message?.length<4}>Pay</button>
                         </div>
                         {/* Or Choose From These Amounts */}
                         <div className="flex justify-between gap-2 my-3">

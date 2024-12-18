@@ -16,6 +16,7 @@ const UserSchema = new Schema({
     profilepic: {
         type: String,
     },
+    
     coverpic: {
         type: String,
     },
