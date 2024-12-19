@@ -39,11 +39,20 @@ export const fetchuser = async (username) => {
 }
 
 export const fetchpayments = async (username) => {
-    await connectDb()
-    // find all payments sorted by decreasing order of amount and flatten object ids
-    let p = await Payment.find({ to_user: username, done:true }).sort({ amount: -1 }).limit(10).lean()
-    return p
-}
+    await connectDb();
+    const payments = await Payment.find({ to_user: username, done: true })
+        .sort({ amount: -1 })
+        .limit(10)
+        .lean();
+
+    // Convert _id and dates to plain strings
+    return payments.map(payment => ({
+        ...payment,
+        _id: payment._id.toString(),
+        createdAt: payment.createdAt.toISOString(),
+        updatedAt: payment.updatedAt.toISOString(),
+    }));
+};
 
 export const updateProfile = async (data, oldusername) => {
     await connectDb()

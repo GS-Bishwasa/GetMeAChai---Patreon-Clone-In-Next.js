@@ -8,7 +8,7 @@ const page = () => {
   const { data: session } = useSession()
   const router = useRouter()
   useEffect(() => {
-    // console.log(session)
+    document.title = "Login - Get Me A Chai"
     if(session) {
       router.push("/dashboard")
      }
@@ -22,7 +22,7 @@ const page = () => {
   return (
     <>
     <div className='text-white py-14 container mx-auto'>
-    <h1 className='text-2xl font-bold text-center my-14'>Login To Get Your Fans To Support You</h1>
+    <h1 className='text-2xl font-bold text-center my-14'>Login To Get Started</h1>
     
 <div className="social-login-buttons flex flex-col items-center justify-center">
 <button type="button" className="text-white w-[205px] bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 me-2 mb-2">

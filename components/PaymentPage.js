@@ -86,7 +86,6 @@ const PaymentPage = ({ username }) => {
         rzp1.open();
     }
 
-
     return (
         <>
             <ToastContainer
@@ -118,16 +117,16 @@ const PaymentPage = ({ username }) => {
                     @{username}
                 </div>
                 <div className="text-slate-400">
-                    Creating Animated art for VTT's
+                    Lets Help {username} To Get A Chai
                 </div>
                 <div className="text-slate-400 mb-5">
-                    15,070 members93 posts$16,190/release
-                </div>
+    {payments.length} Payments . {currentUser.name} Has Raised ₹{payments.reduce((a, b) => a + b.amount, 0)}
+</div>
 
                 <div className="payment flex md:flex-row flex-col gap-3 w-[80%]">
                     <div className="supporters w-full md:w-1/2  bg-slate-900 rounded-xl p-10">
                         {/* Show List Of All supporters As A Leaderboard */}
-                        <h2 className='text-center font-bold text-2xl'>Supporters</h2>
+                        <h2 className='text-center font-bold text-2xl'>Top Supporters</h2>
                         <ul className='overflow-y-scroll max-h-80  [&::-webkit-scrollbar]:w-2
                                                   [&::-webkit-scrollbar-track]:rounded-full
                                                   [&::-webkit-scrollbar-track]:bg-gray-100
@@ -157,7 +156,7 @@ const PaymentPage = ({ username }) => {
                             <input onChange={handlechange} value={paymentform.name} name='name' type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Name' />
                             <input onChange={handlechange} value={paymentform.message} name='message' type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Message' />
                             <input onChange={handlechange} value={paymentform.amount} name='amount' type="number" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Amount' />
-                            <button onClick={()=>{pay(Number.parseInt(paymentform.amount)*100)}} id="rzp-button1" type="button" className="transition-all text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 disabled:bg-slate-600" disabled={paymentform.name?.length<3 || paymentform.message?.length<4}>Pay</button>
+                            <button onClick={()=>{pay(Number.parseInt(paymentform.amount)*100)}} id="rzp-button1" type="button" className="transition-all text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 disabled:bg-slate-600" disabled={paymentform.name?.length<3 || paymentform.message?.length<4 || paymentform.amount.length<1}>Pay</button>
                         </div>
                         {/* Or Choose From These Amounts */}
                         <div className="flex justify-between gap-2 my-3">

@@ -9,7 +9,7 @@ const dashboard = () => {
   const { data: session } = useSession()
   const router = useRouter()
   useEffect(() => {
-    console.log(session)
+    // console.log(session)
     if (!session) {
         router.push('/login')
     }

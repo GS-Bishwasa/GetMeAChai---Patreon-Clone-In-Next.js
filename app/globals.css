@@ -2,4 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* styles/globals.css */
 
+/* Apply vertical scrolling and custom scrollbar styles globally */
+body {
+    overflow-y: scroll; /* Applies to all scrollable elements */
+    max-height: 20rem; /* Matches max-h-80 in Tailwind */
+
+    /* Custom scrollbar styles */
+}
+
+body::-webkit-scrollbar {
+    width: 0.5rem; /* Matches [&::-webkit-scrollbar]:w-2 */
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #f3f4f6; /* Matches bg-gray-100 */
+    border-radius: 9999px; /* Matches rounded-full */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #d1d5db; /* Matches bg-gray-300 */
+    border-radius: 9999px; /* Matches rounded-full */
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body::-webkit-scrollbar-track {
+        background-color: #374151; /* Matches dark:bg-neutral-700 */
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: #6b7280; /* Matches dark:bg-neutral-500 */
+    }
+}

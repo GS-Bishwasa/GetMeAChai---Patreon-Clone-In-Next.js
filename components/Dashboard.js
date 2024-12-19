@@ -13,7 +13,7 @@ const Dashboard = () => {
     const [form, setform] = useState({})
 
     useEffect(() => {
-        console.log(session)
+        // console.log(session)
 
         if (!session) {
             router.push('/login')
@@ -33,7 +33,7 @@ const Dashboard = () => {
     }
 
     const handleSubmit = async (e) => {
-        console.log(e)
+        // console.log(e)
 update()
         let a = await updateProfile(e, session.user.name)
         toast('Profile Updated', {
