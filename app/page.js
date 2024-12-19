@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <div className="flex gap-4 justify-center flex-col h-[44vh] items-center">
-        <div className="flex items-center text-2xl sm:text-5xl font-bold">Get Me A Chai
+        <div className="flex items-center text-2xl sm:text-5xl font-bold p-3">Get Me A Chai
           <span>
             <lord-icon
               src="https://cdn.lordicon.com/tonguyuk.json"
@@ -29,7 +29,7 @@ export default function Home() {
 
         </div>
       </div>
-      <div className="bg-white h-1 opacity-10"></div>
+      <div className="bg-white h-1 opacity-10 hidden md:block"></div>
 
       <div className=" container mx-auto ">
         <h1 className="text-2xl font-bold text-center my-14">Your Fans Can Buy You a Chai</h1>
@@ -57,7 +57,7 @@ export default function Home() {
 
       <div className="container mx-auto flex-row md:flex-col">
         <h2 className="text-2xl font-bold text-center my-14">Learn More About Us</h2>
-        <div className="flex gap-5 justify-around mb-9 flex-col sm:flex-row">
+        <div className="flex gap-5 justify-around mb-9 flex-col sm:flex-row ">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/cQsAba_gGNU?si=p_6_shpY8ZV36_1u" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
       </div>

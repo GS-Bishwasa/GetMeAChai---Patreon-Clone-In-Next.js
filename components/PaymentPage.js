@@ -124,7 +124,7 @@ const PaymentPage = ({ username }) => {
 </div>
 
                 <div className="payment flex md:flex-row flex-col gap-3 w-[80%]">
-                    <div className="supporters w-full md:w-1/2  bg-slate-900 rounded-xl p-10">
+                    <div className="supporters w-full md:w-1/2  bg-slate-900 rounded-xl p-3 md:p-10">
                         {/* Show List Of All supporters As A Leaderboard */}
                         <h2 className='text-center font-bold text-2xl'>Top Supporters</h2>
                         <ul className='overflow-y-scroll max-h-80  [&::-webkit-scrollbar]:w-2
@@ -150,7 +150,7 @@ const PaymentPage = ({ username }) => {
                         </ul>
                     </div>
 
-                    <div className="makepayment  w-full md:w-1/2 bg-slate-900 rounded-xl p-10">
+                    <div className="makepayment  w-full md:w-1/2 bg-slate-900 rounded-xl p-3 md:p-10">
                         <h2 className='text-center font-bold text-2xl'>Make A Payment</h2>
                         <div className="flex gap-2 my-3 flex-col">
                             <input onChange={handlechange} value={paymentform.name} name='name' type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Name' />
